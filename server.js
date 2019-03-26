@@ -31,22 +31,20 @@ mongoose.connect("mongodb://localhost/globalFacts", { useNewUrlParser: true });
 console.log("HELLO WORLD");
 // Routes
 
-// A GET route for scraping the echoJS website
 app.get("/scrape", function(req, res) {
   // First, we grab the body of the html with axios
   axios.get("https://climate.nasa.gov/fun-facts/").then(function(response) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
     var $ = cheerio.load(response.data);
-    // console.log(response.data);
-
+ 
+ 
     // Now, we grab every h2 within an article tag, and do the following:
-    $("list_content").each(function(i, element) {
+    $("div .list_title").each(function(i, element) {
       // Save an empty result object
       var result = {};
-
-      // Add the text and href of every link, and save them as properties of the result object
-      result.title = $(this)
-        .children("list_tittle")
+ 
+        result.title = $(this)
+        .children("a")
         .text();
       result.link = $(this)
         .children("a")
