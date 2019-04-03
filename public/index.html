@@ -35,16 +35,108 @@
         height: 200px;
         font-size: 18px;
       }
+      .button{
+        border-radius: 15px;
+        color: black;
+        font-style: bold;
+      }
+
+
     </style>
   </head>
   <body>
+    <!--Jumbotron-->
+    <div class="jumbotron text-center">
+        <div class="overlay">
+        </div>
+        <div class="background-image">
+        </div>
+        <div class="caption">
+          <h1>Mongo Scraper</h1>
+          <p>Find interesting facts about Global Warming and Earth</p>
+        </div>
+      </div>
+
+
     <div id="wrapper">
-      <h1>News Scraper</h1>
-      <h2><i>Find interesting facts about Global Warming and Earth</i></h2>
+    
       <div id="articles"></div>
+      <div id="title"></div>
       <div id="notes"></div>
+      <div id="buttons">
+          <div id="action-button"><button id="make-new">Submit</button></div>
+          <button id="clear-all">Delete All Notes</button>
+        </div>
     </div>
+<!-- NEW CODE START HERE -->
+
+<!-- <h1>Comments & Notes </h1>
+  <div id="user-input">
+      <p>Title</p>
+      <input type="text" id="title">
+    <br>
+      <p>Note</p>
+      <textarea id="note"></textarea>
+    <div id="buttons">
+      <div id="action-button"><button id="make-new">Submit</button></div>
+      <button id="clear-all">Delete All Notes</button>
+    </div>
+  </div> -->
+      <!-- here last div  -->
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
+
+
+    <!-- /* body {
+      text-align: center;
+      background-color: cornflowerblue;
+    }
+    h1 {
+      font-size: 40px;
+      color: white;
+    }
+    .delete {
+      margin-left: 20px;
+      color: red;
+      cursor: pointer;
+      text-align: right;
+    }
+    input {
+      width: 400px;
+      height: 50px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 42px;
+      background-color: antiquewhite;
+    }
+    textarea {
+      width: 400px;
+      height: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 24px;
+      background-color: antiquewhite;
+
+    }
+    .data-title {
+      cursor: pointer;
+      font-size: 24px;
+    }
+    #results {
+      width: 400px;
+      height: 200px;
+      overflow: auto;
+      margin-left: auto;
+      margin-right: auto;
+      background-color: antiquewhite;
+    }
+    #action-button {
+      display: inline-block;
+    }
+    #buttons {
+      margin: 20px;
+    }
+  </style> */ -->

@@ -11,7 +11,7 @@ $.getJSON("/articles", function(data) {
 // Whenever someone clicks a p tag
 $(document).on("click", "p", function() {
   // Empty the notes from the note section
-  $("#notes").empty();
+  $("#notes").prepend(note);
   // Save the id from the p tag
   var thisId = $(this).attr("data-id");
 
@@ -31,6 +31,9 @@ $(document).on("click", "p", function() {
       $("#notes").append("<textarea id='bodyinput' name='body'></textarea>");
       // A button to submit a new note, with the id of the article saved to it
       $("#notes").append("<button data-id='" + data._id + "' id='savenote'>Save Note</button>");
+//ADD DELETE BUTTON
+      $("#notes").append("<button data-id='" + data._id + "' id='deletenote'>Delete Note</button>");
+ 
 
       // If there's a note in the article
       if (data.note) {
@@ -38,6 +41,14 @@ $(document).on("click", "p", function() {
         $("#titleinput").val(data.note.title);
         // Place the body of the note in the body textarea
         $("#bodyinput").val(data.note.body);
+
+        //prepend the second text area with the notes to delete or view
+        $("#results").prepend("<p class='data-entry' data-id=" + data._id + "><span class='dataTitle' data-id=" +
+        data._id + ">" + data.title + "</span><span class=delete>X</span></p>");
+        // Clear the note and title inputs on the page
+        $("#note").val("");
+        $("#title").val("");
+        //copy end here
       }
     });
 });
@@ -55,9 +66,26 @@ $(document).on("click", "#savenote", function() {
       // Value taken from title input
       title: $("#titleinput").val(),
       // Value taken from note textarea
-      body: $("#bodyinput").val()
+      body: $("#bodyinput").val(),
+
+      note: $("#note").val()
     }
   })
+
+//   success:function(data){
+//     $("#note").val("");
+//     $("#title").val("");
+//     $("#action-button").html("<button id='make-new'>Submit</button>");
+
+//     getResults();
+//   }
+// });
+
+
+
+
+
+  // ******* */start HERE***********************
     // With that done
     .then(function(data) {
       // Log the response

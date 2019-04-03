@@ -33,23 +33,32 @@ console.log("HELLO WORLD");
 
 app.get("/scrape", function(req, res) {
   // First, we grab the body of the html with axios
-  axios.get("https://climate.nasa.gov/fun-facts/").then(function(response) {
+  axios.get("https://climate.nasa.gov/evidence/").then(function(response) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
     var $ = cheerio.load(response.data);
+    console.log("Scrape working")
  
  
     // Now, we grab every h2 within an article tag, and do the following:
-    $("div .list_title").each(function(i, element) {
+    $("h2").each(function(i, element) {
       // Save an empty result object
       var result = {};
  
-        result.title = $(this)
-        .children("a")
+        // result.title = $(this)
+        // .children("img")
+        // .text();
+        // result.link = $(this)
+        // .children("a")
+        // .attr("href");
+//TRYING NEW ********
+        result.description = $(this)
+        .find (".description")
         .text();
-      result.link = $(this)
-        .children("a")
-        .attr("href");
+        result.photo = $(this)
+        .find("img")
+        .attr("alt");
 
+//END TRIAL CODE HERE***************
       // Create a new Article using the `result` object built from scraping
       db.Article.create(result)
         .then(function(dbArticle) {

@@ -1,0 +1,57 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Global Warming Facts / News</h1>
+    
+  </div>
+</div>
+
+{{!-- <div id="wrapper">
+      <h1>News Scraper</h1>
+      <h2><i>Find interesting facts about Global Warming and Earth</i></h2>
+      <div id="articles"></div>
+      <div id="notes"></div>
+    </div> --}}
+
+<div id="wrapper">
+      <h1>News Scraper</h1>
+      <h2><i>Find interesting facts about Global Warming and Earth</i></h2>
+      <div id="news"></div>
+      </div>
+
+<script id="articleTemplate" type="text/x-handlebars-template">
+{{#each articles}}
+<div class ="article">
+  <div class="img-column">
+    <img src="{{img}}">
+  </div>
+
+
+<div class="info-column">
+  <h2></h2>
+</div>
+</script>
+
+      
+      <div>
+       ({{#each notes}}}
+       
+       </div>
+    </div>
+
+    <div id="user-input">
+      <p>Title test</p>
+      <input type= "text" id="title" />
+      <br>
+      <p>Note Test</p>
+      <textarea id= "note"></textarea>
+      <div id="action-button">
+        <button id="make-new">Submit</button>
+      </div>
+      <button id="clear-all"> Delete All Notes</button>
+    </div>
+
+
+    <div id="results"></div>
+    
+
+    
